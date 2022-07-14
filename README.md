@@ -9,6 +9,7 @@ They can post a to-do list, updates on their job hunt, future projects they want
 * Python
 * Django
 * PostgreSQL
+* Materialize
 
 ## ScreenShots
 * ![Screen Shot 2022-07-14 at 5 47 28 AM](https://user-images.githubusercontent.com/103865078/178986393-22471e07-11e1-4cc2-abcc-f944c2b97ea8.png)
