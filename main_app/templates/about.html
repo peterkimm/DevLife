@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DevLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="/" class="left brand-logo">&nbsp;&nbsp; DevLife</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li><a href="/about">About Us</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profiles_create' %}">Create a Profile</a></li>
+                    <li><a href="{% url 'index' %}">My Profile</a></li>
+                    <li><a href="{% url 'contacts_index' %}">My Contacts</a></li>
+                    <li><a href="{% url 'contacts_create' %}">Add Contacts</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>About Us</h1>
+        <hr />
+        <div>
+            <div class="caption">DevLife is a journal application that provides the user a place where they can journal
+                their
+                journey as a developer.<br>
+                They can post a to-do list, updates on their job hunt, future projects they want to work on, etc.
+            </div>
+        </div>
+        <div class="picture">
+            <img class="materialboxed" data-caption="do what you love and love what you do!"
+                src="https://images.unsplash.com/photo-1554290712-e640351074bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fGFib3V0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                alt="" width="700" height="500">
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="center">
+            All Rights Reserved © 2022 DevLife
+        </div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var matbox = document.querySelectorAll('.materialboxed');
+        M.Materialbox.init(matbox, {
+            inDuration: 500
+        })
+    })
+</script>
+
+</html>

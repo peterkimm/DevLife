@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Contact Details</h1>
+
+<div class="card">
+    <a href="{% url 'contacts_detail' contact.id %}">
+        <div class="card-content">
+            <span class="card-title">
+                <span>Name: {{ contact.name }} || Email: {{ contact.email }} || Company: {{ contact.company }} <br/> Notes: {{ contact.notes }} </span>
+            </span>
+        </div>
+        <div class="card-action">
+            <a href="{% url 'contacts_update' contact.id %}">Edit</a>
+            <a href="{% url 'contacts_delete' contact.id %}">Delete</a>
+        </div>
+    </a>
+</div>
+
+{% endblock %}

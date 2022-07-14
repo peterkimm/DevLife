@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+{% for profile in profiles %}
+<h1>{{ profile.name }}'s Profile</h1>
+{% endfor %}
+
+{% for profile in profiles %}
+<div class="card">
+    <a href="{% url 'detail' profile.id %}">
+        <div class="card-content">
+            <span class="card-title">Username: @{{ profile.username }}</span>
+            <p>Occupation: {{ profile.occupation }}</p>
+            <p>Age: {{ profile.age }}</p>
+            <p>About Me: {{ profile.aboutme }}</p>
+        </div>
+    </a>
+</div>
+{% endfor %} {% endblock %}

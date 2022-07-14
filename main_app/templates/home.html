@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DevLife</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <header class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="/" class="left brand-logo">&nbsp;&nbsp; DevLife</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li><a href="/about">About Us</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profiles_create' %}">Create a Profile</a></li>
+                    <li><a href="{% url 'index' %}">My Profile</a></li>
+                    <li><a href="{% url 'contacts_index' %}">My Contacts</a></li>
+                    <li><a href="{% url 'contacts_create' %}">Add Contacts</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="content">
+            <h5>Welcome To Your</h5>
+            <h1>Journal<br>For Your<br>Dev Journey</h1>
+        </div>
+        <div class="collap">
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Step 1)</div>
+                    <div class="collapsible-body"><span>Create a profile. Add your bio and profile picture.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Step 2)</div>
+                    <div class="collapsible-body"><span>Create a profile. Add your bio and profile picture.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Step 3)</div>
+                    <div class="collapsible-body"><span>Post daily notes. Keep track of your progress.</span></div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">arrow_forward</i>Step 4)</div>
+                    <div class="collapsible-body"><span>Make a contact list of recruiters and other developers.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="center">
+            All Rights Reserved © 2022 DevLife
+        </div>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var collapse = document.querySelectorAll('.collapsible')
+        M.Collapsible.init(collapse)
+    })
+</script>
+
+</html>
